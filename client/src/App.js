@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 
 export default function App() {
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [showScore, setShowScore] = useState(false);
+  const [score, setScore] = useState(0);
+  const [answerOption, setAnswerOption] = useState();
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+
 	const questions = [
 		{
 			questionText: 'What is the capital of France?',
@@ -38,28 +44,45 @@ export default function App() {
 				{ answerText: '7', isCorrect: true },
 			],
 		},
-	];
+  ];
+  
+  const handleAnswerButtonClick = (isCorrect) => {
+    if (isCorrect) {
+      setScore(score + 1);
+    }
+
+    const nextQuestion = currentQuestion + 1;
+    if (nextQuestion < questions.length) {
+      setCurrentQuestion(nextQuestion);
+      setCurrentQuestionIndex(i => i + 1);
+    } else {
+      setShowScore(true);
+    }
+  };
 
 	return (
 		<div className='app'>
 			{/* HINT: replace "false" with logic to display the 
       score when the user has answered all the questions */}
-			{false ? (
-				<div className='score-section'>You scored 1 out of {questions.length}</div>
-			) : (
-				<>
-					<div className='question-section'>
-						<div className='question-count'>
-							<span>Question 1</span>/{questions.length}
-						</div>
-						<div className='question-text'>{questions[0].questionText}</div>
-					</div>
-					<div className='answer-section'>
-              {questions[0].answerOptions.map((answerOption, index) => (
-                <button>{answerOption.answerText}</button>
-            ))}
-					</div>
-				</>
+			{showScore ? (
+        <div className='score-section'>
+          You scored {score} out of {questions.length}
+        </div>
+			  ) : (
+          <>
+            <div className='question-section'>
+              <div className='question-count'>
+                  <span>Question { currentQuestionIndex + 1 }</span>/{questions.length}
+              </div>
+              <div className='question-text'>{questions[currentQuestionIndex].questionText}</div>
+            </div>
+            <div className='answer-section'>
+              {questions[currentQuestionIndex].answerOptions.map((answerOption, index) => (
+                <button key={index} onClick={() => handleAnswerButtonClick(answerOption.isCorrect)}>
+                  {answerOption.answerText}</button>
+              ))}
+            </div>
+          </>
 			)}
 		</div>
 	);
