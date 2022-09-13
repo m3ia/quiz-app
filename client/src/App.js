@@ -15,7 +15,10 @@ export default function App() {
   return (
     <div className="container">
       <div className="title">
-        <h1>GoodGames</h1>
+        <h1>
+          GoodGames
+          <span class="material-symbols-outlined menu-icon" onClick={() => setView('home')}>home</span>
+        </h1>
       </div>
       {view === 'home' && (
         <div className="game-cards-container">
