@@ -57,7 +57,7 @@ export default function MiniTrivia() {
     } else {
       setShowScore(true);
     }
-  };
+	};
 
 	return (
 		<div className='mini-trivia'>

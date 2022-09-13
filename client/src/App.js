@@ -3,18 +3,38 @@ import MiniTrivia from './components/MiniTrivia';
 import MovieTrivia from './components/MovieTrivia';
 
 export default function App() {
+  const [view, setView] = useState('home');
+
   const games = [
-    { name: 'Mini Trivia', component: MiniTrivia },
-    {name: 'Movie Trivia', component: MovieTrivia },
+    { name: 'Mini Trivia' },
+    { name: 'Movie Trivia'},
   ]
+  const updateView = (viewName)=> {
+    setView(viewName);
+  }
   return (
     <div className="container">
       <div className="title">
         <h1>GoodGames</h1>
       </div>
-      {games.map((game, index) => (
-        <p>{game.name}</p>
-      )
+      {view === 'home' && (
+        <div className="game-cards-container">
+          {games.map((game, index) => (
+            <div
+              className="game-card"
+              key={index}
+              onClick={() => updateView(game.name)}
+            >
+              <p>{game.name}</p>
+            </div>
+          ))}
+        </div>)
+      }
+      {view === 'Mini Trivia' && (
+        <MiniTrivia/>
+      )}
+      {view === 'Movie Trivia' && (
+        <MovieTrivia/>
       )}
     </div>
 	);
