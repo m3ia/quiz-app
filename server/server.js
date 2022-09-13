@@ -12,5 +12,16 @@ app.listen(PORT, () => {
 });
 
 app.get('/', (req, res) => {
-  res.json('Helloooo we work');
+  res.send('Helloooo we work');
 });
+
+// First game fetch
+app.get('/api/firstTenMovies', (req, res) => {
+  const url = 'https://opentdb.com/api.php?amount=10&category=11&difficulty=easy&type=multiple';
+
+  fetch(url)
+    .then(r => r.json())
+    .then(data => res.send({ data }))
+    .catch(err => console.log(err));
+
+}) 
