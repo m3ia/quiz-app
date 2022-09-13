@@ -11,9 +11,13 @@ body {
   font-family: "Verdana", cursive, sans-serif;
   color: #ffffff;
 }
-
+h1 {
+  font-family: 'Anonymous Pro', monospace;
+  font-size: 60px;
+}
 body {
-  background-color: #7cc6fe;
+  /* background-color: #7cc6fe; */
+  background-image: linear-gradient(to right top, #845ec2, #e65faa, #ff8080, #ffbb61, #f9f871);
   display: flex;
   justify-content: center;
   align-items: center;

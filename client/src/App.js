@@ -9,6 +9,9 @@ export default function App() {
   ]
   return (
     <div className="container">
+      <div className="title">
+        <h1>GoodGames</h1>
+      </div>
       {games.map((game, index) => (
         <p>{game.name}</p>
       )
