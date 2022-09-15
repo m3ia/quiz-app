@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
   res.send('Helloooo we work');
 });
 
-// First game fetch
+// Movies game fetch
 app.get('/api/firstTenMovies', (req, res) => {
   const url = 'https://opentdb.com/api.php?amount=10&category=11&difficulty=easy&type=multiple';
 
@@ -25,3 +25,20 @@ app.get('/api/firstTenMovies', (req, res) => {
     .catch(err => console.log(err));
 
 }) 
+
+// Custom Trivia Fetch
+app.get(`/api/customTrivia`, (req, res) => {
+  const params = new URLSearchParams({
+    amount: req.query.amount,
+    category: req.query.category
+  })
+
+  const url = `https://opentdb.com/api.php?${params}}`;
+
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => {
+      res.send({ data });
+    })
+    .catch((err) => console.log(err));
+})

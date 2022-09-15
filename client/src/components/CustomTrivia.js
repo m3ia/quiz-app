@@ -3,6 +3,7 @@ import TriviaCard from './TriviaCard';
 
 export default function MovieTrivia() {
   const [isLoading, setIsLoading] = useState(true);
+  const [showForm, setShowForm] = useState(true);
   const [questionsData, setQuestionsData] = useState([]);
   const [qIndex, setQIndex] = useState(0);
   const [currCard, setCurrCard] = useState({});
@@ -50,25 +51,29 @@ export default function MovieTrivia() {
   }, [questionsData, createNewCard])
   return (
     <>
-      {
-        isLoading ? (
-          <h1>One sec!</h1>
+      {showForm ? (
+        <h1>this is the form</h1>
         ) :
-          (
-            <div className="movie-trivia-container">
-              <div className="trivia-card-div">
-                <TriviaCard
-                  score={score}
-                  setScore={setScore}  
-                  currCard={currCard}
-                  setCurrCard={setCurrCard}
-                  qIndex={qIndex}
-                  setQIndex={setQIndex}
-                  questionsData={questionsData}
-                  createNewCard={createNewCard}
-              />
+        (
+          isLoading ? (
+            <h1>One sec!</h1>
+          ) :
+            (
+              <div className="movie-trivia-container">
+                <div className="trivia-card-div">
+                  <TriviaCard
+                    score={score}
+                    setScore={setScore}  
+                    currCard={currCard}
+                    setCurrCard={setCurrCard}
+                    qIndex={qIndex}
+                    setQIndex={setQIndex}
+                    questionsData={questionsData}
+                    createNewCard={createNewCard}
+                />
+              </div>
             </div>
-          </div>
+          )
         )
       }
     </>
