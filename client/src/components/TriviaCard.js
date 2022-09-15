@@ -26,13 +26,17 @@ export default function TriviaCard({ score, setScore, currCard, qIndex,  setQInd
         showScore ? (<p>{score}</p>) : 
           (
             <>
-              <p>hi</p>
-              <p>{currCard.question}</p>
-              <p>
-                {currCard.allAnswers.map(a => {
-                  return <button key={a} onClick={() => nextQuestion(a, currCard.correctAnswer)}> { a }</button>
+              <p className="trivia-question">Question {qIndex+1}/{questionsData.length}: {currCard.question}</p>
+                {currCard.allAnswers.map((answer, ind) => {
+                  return <p className='trivia-answer-p' key={`${answer}-p`}>
+                    <button
+                    key={ind}
+                    onClick={() => nextQuestion(answer, currCard.correctAnswer)}
+                    className="trivia-answer-btn"
+                  >{answer}</button>
+                    <span className={`material-symbols-outlined ${answer === currCard.correctAnswer ? 'correct-answer-icon' : 'wrong-answer-icon'}`} key={`${answer}-icon`}> {answer === currCard.correctAnswer ? 'done' : 'close'} </span>
+                  </p>
                 })}
-              </p>
             </>
           )
       }

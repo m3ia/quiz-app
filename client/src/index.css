@@ -96,7 +96,7 @@ body {
   justify-content: space-between;
 }
 
-button {
+.mini-trivia button {
   width: 100%;
   font-size: 16px;
   color: #ffffff;
@@ -118,14 +118,65 @@ button {
   background-color: #ff3333;
 }
 
-button:hover {
+.mini-trivia button:hover {
   background-color: #555e7d;
 }
 
-button:focus {
+.mini-trivia button:focus {
   outline: none;
 }
 
 button svg {
   margin-right: 5px;
 }
+
+p {
+  font-size: 20px;
+}
+
+/* MOVIE TRIVIA GAME --------------------------- */
+.trivia-card-div {
+  display: flex;
+  flex-direction: column;
+  border: 5px solid #845ec2;
+  padding: 15px; 
+  background-color: #845ec2;
+  border-radius: 5px;
+  counter-reset: listStyle;
+}
+
+.trivia-answer-p {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.trivia-answer-p::before {
+    counter-increment: listStyle;
+    content: counter(listStyle, lower-alpha) '.';
+}
+.trivia-answer-btn {
+  border: 5px solid #e65faa;
+  width: 100%;
+  color: #ffffff;
+  background-color: #845ec2;
+  border-radius: 15px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 5px;
+  cursor: pointer; 
+  margin-left: 1em;
+ }
+
+ .trivia-answer-btn::before { 
+  margin-left: 1em;
+ }
+
+.trivia-answer-btn:hover {
+   background-color: #e65faa;
+ }
+
+.trivia-answer-btn:focus {
+   outline: none;
+ }
