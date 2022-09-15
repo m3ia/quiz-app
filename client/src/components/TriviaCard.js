@@ -1,13 +1,18 @@
 import React, {useEffect, useState} from 'react';
 
-export default function TriviaCard({ score, setScore, currentQuestion, setCurrentQuestion, answers, setAnswers, correctAnswer, setCorrectAnswer, currCard, setCurrCard, qIndex,  setQIndex, questionsData, createNewCard }) {
+export default function TriviaCard({ score, setScore, currCard, qIndex,  setQIndex, questionsData, createNewCard }) {
   const [showScore, setShowScore] = useState(false);
-  const nextQuestion = () => {
-    if (qIndex < questionsData.length) {
-      setQIndex(i => i + 1);
-      createNewCard(questionsData[qIndex]);
-    } else {
+
+  const nextQuestion = (curr, corrA) => {
+    console.log('testing: ', curr, corrA)
+    console.log('score', score);
+    if (curr === corrA) {
       setScore(s => s + 1);
+    }
+    if (qIndex + 1 < questionsData.length) {
+      setQIndex(i => i + 1);
+      createNewCard(questionsData[qIndex+1]);
+    } else {
       setShowScore(true);
     }
 
@@ -25,7 +30,7 @@ export default function TriviaCard({ score, setScore, currentQuestion, setCurren
               <p>{currCard.question}</p>
               <p>
                 {currCard.allAnswers.map(a => {
-                  return <button key={a} onClick={nextQuestion}>{a}</button>
+                  return <button key={a} onClick={() => nextQuestion(a, currCard.correctAnswer)}> { a }</button>
                 })}
               </p>
             </>
