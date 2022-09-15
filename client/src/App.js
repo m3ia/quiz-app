@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import MiniTrivia from './components/MiniTrivia';
 import MovieTrivia from './components/MovieTrivia';
+import CustomTrivia from './components/CustomTrivia';
 
 export default function App() {
   const [view, setView] = useState('home');
 
   const games = [
     { name: 'Mini Trivia' },
-    { name: 'Movie Trivia'},
+    { name: 'Movie Trivia' },
+    {name: 'Custom Trivia'}
   ]
   const updateView = (viewName)=> {
     setView(viewName);
@@ -38,6 +40,9 @@ export default function App() {
       )}
       {view === 'Movie Trivia' && (
         <MovieTrivia/>
+      )}
+      {view === 'Custom Trivia' && (
+        <CustomTrivia/>
       )}
     </div>
 	);
