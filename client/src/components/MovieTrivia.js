@@ -26,7 +26,7 @@ export default function MovieTrivia() {
     setCurrCard({
       question: question,
       correctAnswer: correctAnswer,
-      allAnswers: allAnswers
+      allAnswers: allAnswers.sort(() => Math.random() - 0.5)
     });
   }, []);
 
