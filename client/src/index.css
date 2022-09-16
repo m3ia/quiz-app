@@ -12,9 +12,10 @@ body {
 }
 
 * {
-  font-family: "Verdana", cursive, sans-serif;
+  font-family: "Anonymous Pro", cursive, sans-serif;
   color: #ffffff;
 }
+
 h1 {
   font-family: 'Anonymous Pro', monospace;
   font-size: 60px;
@@ -44,8 +45,33 @@ body {
   padding: 15px;
   background-color: #845ec2;
   margin: 7px;
-  box-shadow: 10px 10px 7px 0px rgba(99, 45, 45, 0.75);
+  cursor: pointer;
+  box-shadow: 7px 7px 7px 0px rgba(99, 45, 45, 0.75);
 }
+
+.game-card:hover {
+  box-shadow: 10px 10px 7px 0px #f9f871;
+}
+
+.title-div {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.menu-icon:hover {
+  color: #f9f871;
+}
+.title-div .title:hover {
+  color: #f9f871;
+}
+
+.menu-icon {
+  font-size: 40px;
+  margin-left: 20px;
+}
+
 /* MINI TRIVIA GAME --------------------------- */
 .mini-trivia {
   background-color: #252d4a;

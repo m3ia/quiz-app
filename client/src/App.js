@@ -16,11 +16,18 @@ export default function App() {
   }
   return (
     <div className="container">
-      <div className="title">
-        <h1>
+      <div className="title-div" onClick={() => setView('home')}>
+        <div><h1 className="title">
           GoodGames
-          <span className="material-symbols-outlined menu-icon" onClick={() => setView('home')}>home</span>
-        </h1>
+          </h1>
+        </div>
+        <div>
+          <h1>
+            <span className="material-symbols-outlined menu-icon">menu
+          </span>
+          </h1>
+        </div>
+
       </div>
       {view === 'home' && (
         <div className="game-cards-container">

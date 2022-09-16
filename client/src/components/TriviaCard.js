@@ -23,7 +23,7 @@ export default function TriviaCard({ score, setScore, currCard, qIndex,  setQInd
   return (
     <>
       {
-        showScore ? (<h1>Score: {score}</h1>) : 
+        showScore ? (<h1>Score: {score}/{questionsData.length}</h1>) : 
           (
             <>
               <p className="trivia-question">Question {qIndex+1}/{questionsData.length}: {currCard.question}</p>
