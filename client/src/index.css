@@ -21,8 +21,6 @@ h1 {
   font-size: 60px;
   color: white;
   text-shadow: 2px 2px 4px #000000;
-  /* -webkit-text-stroke: .02px white;
-  -webkit-text-fill-color: transparent; */
 }
 body {
   /* background-color: #7cc6fe; */
@@ -34,7 +32,6 @@ body {
 }
 
 .container {
-  /* width: 1000px;; */
   width: 75%;
   margin: 20px;
 }
@@ -77,6 +74,21 @@ body {
 
 .menu-icon:hover {
   color: #9ee8aa;
+}
+
+.correct-answer-icon {
+  color: rgb(121, 255, 157);
+}
+
+.wrong-answer-icon {
+  color: rgb(255, 115, 115);
+}
+
+.inactive-color {
+  background-color: black;
+}
+.inactive-color:hover {
+  background-color: black;
 }
 
 /* MINI TRIVIA GAME --------------------------- */
@@ -137,7 +149,6 @@ body {
   font-size: 16px;
   color: #ffffff;
   background-color: #252d4a;
-  /* border-radius: 15px; */
   display: flex;
   padding: 5px;
   justify-content: flex-start;
@@ -197,7 +208,6 @@ p {
   width: 100%;
   color: #ffffff;
   background-color: #845ec2;
-  /* border-radius: 15px; */
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -218,12 +228,4 @@ p {
 
 .trivia-answer-btn:focus {
    outline: none;
- }
-
- .correct-answer-icon {
-  color: rgb(121, 255, 157);
- }
-
- .wrong-answer-icon {
-  color: rgb(255, 115, 115);
  }

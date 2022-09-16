@@ -24,14 +24,16 @@ export default function TriviaCard({ score, setScore, currCard, qIndex,  setQInd
     // Actions for if we should show the score
     if (qIndex + 1 < questionsData.length) {
       setQIndex(i => i + 1);
-      setTimeout(() => createNewCard(questionsData[qIndex + 1]), 2200);
+      setTimeout(() => createNewCard(questionsData[qIndex + 1]), 1500);
     } else {
       setShowScore(true);
     }
 
     // Reset answer icons and reactivate buttons
-    setTimeout(() => setShowIcons(false), 2200);
-    setTimeout(() => setIsActive(true), 2200);
+    setTimeout(() => {
+      setShowIcons(false);
+      setIsActive(true)
+    }, 1500);
   }
 
 
@@ -48,7 +50,7 @@ export default function TriviaCard({ score, setScore, currCard, qIndex,  setQInd
                     key={ind}
                     onClick={(e) => nextQuestion(answer, currCard.correctAnswer, e)}
                     disabled={!isActive}
-                    className={`trivia-answer-btn ${isActive ? "" : "disabled"}`}
+                    className='trivia-answer-btn'
                   >{answer}</button>
                     <span className={`material-symbols-outlined ${answer === currCard.correctAnswer ? 'correct-answer-icon' : 'wrong-answer-icon'}`} key={`${answer}-icon`}> {showIcons && (answer === currCard.correctAnswer ? 'done' : 'close')} </span>
                   </p>

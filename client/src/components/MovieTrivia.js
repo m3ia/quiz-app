@@ -22,7 +22,6 @@ export default function MovieTrivia() {
       allAnswers.push(decodeEntities(ans));
     }
     allAnswers.push(correctAnswer);
-
     setCurrCard({
       question: question,
       correctAnswer: correctAnswer,
