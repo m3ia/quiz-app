@@ -212,3 +212,11 @@ p {
 .trivia-answer-btn:focus {
    outline: none;
  }
+
+ .correct-answer-icon {
+  color: rgb(121, 255, 157);
+ }
+
+ .wrong-answer-icon {
+  color: rgb(255, 115, 115);
+ }
