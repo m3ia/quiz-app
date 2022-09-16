@@ -3,20 +3,35 @@ import React, {useEffect, useState} from 'react';
 export default function TriviaCard({ score, setScore, currCard, qIndex,  setQIndex, questionsData, createNewCard }) {
   const [showScore, setShowScore] = useState(false);
   const [showIcons, setShowIcons] = useState(false);
+  const [isActive, setIsActive] = useState(true);
 
-  const nextQuestion = (curr, corrA) => {
+  const nextQuestion = (curr, corrA, e) => {
     setShowIcons(true);
+    setIsActive(false);
 
+    // Actions for clicking the correct answer
     if (curr === corrA) {
       setScore(s => s + 1);
+      e.target.style.backgroundColor = '#9ee8aa';
+      e.target.style.borderColor = '#9ee8aa';
+      e.target.style.color = 'black';
+    } else {
+      e.target.style.backgroundColor = 'rgb(255, 70, 70)';
+      e.target.style.borderColor = 'rgb(255, 70, 70)';
+      e.target.style.color = 'black';
     }
+
+    // Actions for if we should show the score
     if (qIndex + 1 < questionsData.length) {
       setQIndex(i => i + 1);
-      setTimeout(() => createNewCard(questionsData[qIndex + 1]), 500);
+      setTimeout(() => createNewCard(questionsData[qIndex + 1]), 2200);
     } else {
       setShowScore(true);
     }
-    setTimeout(() => setShowIcons(false), 500);
+
+    // Reset answer icons and reactivate buttons
+    setTimeout(() => setShowIcons(false), 2200);
+    setTimeout(() => setIsActive(true), 2200);
   }
 
 
@@ -31,8 +46,9 @@ export default function TriviaCard({ score, setScore, currCard, qIndex,  setQInd
                   return <p className='trivia-answer-p' key={`${answer}-p`}>
                     <button
                     key={ind}
-                    onClick={() => setTimeout(nextQuestion(answer, currCard.correctAnswer), 1000)}
-                    className="trivia-answer-btn"
+                    onClick={(e) => nextQuestion(answer, currCard.correctAnswer, e)}
+                    disabled={!isActive}
+                    className={`trivia-answer-btn ${isActive ? "" : "disabled"}`}
                   >{answer}</button>
                     <span className={`material-symbols-outlined ${answer === currCard.correctAnswer ? 'correct-answer-icon' : 'wrong-answer-icon'}`} key={`${answer}-icon`}> {showIcons && (answer === currCard.correctAnswer ? 'done' : 'close')} </span>
                   </p>
