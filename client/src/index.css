@@ -19,6 +19,7 @@ h1 {
   font-family: 'Anonymous Pro', monospace;
   font-size: 60px;
   color: white;
+  text-shadow: 2px 2px 4px #000000;
   /* -webkit-text-stroke: .02px white;
   -webkit-text-fill-color: transparent; */
 }
@@ -39,9 +40,11 @@ body {
   align-items: center;
 }
 .game-card {
-  border: 1px solid black;
+  border: 1px solid #e65faa;
   padding: 15px;
-  
+  background-color: #845ec2;
+  margin: 7px;
+  box-shadow: 10px 10px 7px 0px rgba(99, 45, 45, 0.75);
 }
 /* MINI TRIVIA GAME --------------------------- */
 .mini-trivia {
@@ -101,7 +104,7 @@ body {
   font-size: 16px;
   color: #ffffff;
   background-color: #252d4a;
-  border-radius: 15px;
+  /* border-radius: 15px; */
   display: flex;
   padding: 5px;
   justify-content: flex-start;
@@ -143,6 +146,7 @@ p {
   background-color: #845ec2;
   border-radius: 5px;
   counter-reset: listStyle;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .trivia-answer-p {
@@ -156,17 +160,19 @@ p {
     content: counter(listStyle, lower-alpha) '.';
 }
 .trivia-answer-btn {
-  border: 5px solid #e65faa;
+  border: 1px solid #e65faa;
   width: 100%;
   color: #ffffff;
   background-color: #845ec2;
-  border-radius: 15px;
+  /* border-radius: 15px; */
   display: flex;
   justify-content: flex-start;
   align-items: center;
   padding: 5px;
   cursor: pointer; 
   margin-left: 1em;
+  margin: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
  }
 
  .trivia-answer-btn::before { 
