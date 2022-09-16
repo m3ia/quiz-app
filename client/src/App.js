@@ -23,7 +23,7 @@ export default function App() {
         </div>
         <div>
           <h1>
-            <span className="material-symbols-outlined menu-icon">menu
+            <span className="material-symbols-outlined menu-icon">home
           </span>
           </h1>
         </div>

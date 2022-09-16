@@ -40,7 +40,12 @@ export default function TriviaCard({ score, setScore, currCard, qIndex,  setQInd
   return (
     <>
       {
-        showScore ? (<h1>Score: {score}/{questionsData.length}</h1>) : 
+        showScore ? (
+          <div className="score-div">
+            <h1>Score: {score}/{questionsData.length}</h1>
+          </div>
+          
+        ) : 
           (
             <>
               <p className="trivia-question">Question {qIndex+1}/{questionsData.length}: {currCard.question}</p>

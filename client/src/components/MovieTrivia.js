@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import TriviaCard from './TriviaCard';
+import spinner from '../components/spinner3.svg';
 
 export default function MovieTrivia() {
   const [isLoading, setIsLoading] = useState(true);
@@ -51,7 +52,7 @@ export default function MovieTrivia() {
     <>
       {
         isLoading ? (
-          <h1>One sec!</h1>
+          <div className="spinner-div"><img className="spinner" src={spinner} alt="spinner"/></div>
         ) :
           (
             <div className="movie-trivia-container">

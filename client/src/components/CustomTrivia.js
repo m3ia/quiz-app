@@ -52,7 +52,10 @@ export default function MovieTrivia() {
   return (
     <>
       {showForm ? (
-        <h1>this is the form</h1>
+        <div className="custom-form">
+          <h1>this is the form</h1>
+        </div>
+        
         ) :
         (
           isLoading ? (
